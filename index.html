@@ -584,6 +584,35 @@
         // Observer la section bestsellers
         const bestsellersSection = document.querySelector('.bestsellers');
         animateOnScroll.observe(bestsellersSection);
+
+        // Gestion du tap sur mobile pour les cartes de collection
+        document.addEventListener('DOMContentLoaded', function() {
+            const collectionCards = document.querySelectorAll('.collection-card');
+            let activeCard = null;
+
+            collectionCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Si une carte est déjà active, on la désactive
+                    if (activeCard && activeCard !== this) {
+                        activeCard.classList.remove('active');
+                    }
+
+                    // Toggle la classe active sur la carte cliquée
+                    this.classList.toggle('active');
+                    activeCard = this.classList.contains('active') ? this : null;
+                });
+            });
+
+            // Fermer la carte active si on clique ailleurs
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.collection-card') && activeCard) {
+                    activeCard.classList.remove('active');
+                    activeCard = null;
+                }
+            });
+        });
     </script>
 </body>
 </html>
