@@ -2355,3 +2355,186 @@ section {
     }
 }
 
+/* Ajustements responsive généraux */
+@media screen and (max-width: 768px) {
+    /* Header mobile */
+    header {
+        padding: 15px 20px;
+    }
+
+    .nav-left {
+        display: none; /* On cache la partie gauche sur mobile */
+    }
+
+    .logo h1 {
+        font-size: 32px;
+    }
+
+    .logo-tagline {
+        font-size: 10px;
+    }
+
+    .search-bar {
+        display: none; /* On cache la barre de recherche sur mobile */
+    }
+
+    /* Menu principal mobile */
+    .main-menu {
+        padding: 15px 20px;
+        overflow-x: auto;
+        gap: 25px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .menu-item .menu-text {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* Hero section mobile */
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        margin-right: 0;
+        padding: 0 20px;
+    }
+
+    .hero-badge {
+        padding: 10px 20px;
+        font-size: 10px;
+    }
+
+    /* Collections section mobile */
+    .collections-header h2 {
+        font-size: 32px;
+        padding: 0 20px;
+    }
+
+    .collections-grid {
+        padding: 0 20px;
+    }
+
+    .collection-card {
+        margin-bottom: 30px;
+    }
+
+    /* Experience section mobile */
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .experience-card {
+        padding: 30px 20px;
+    }
+
+    .experience-quote {
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    /* Newsletter mobile */
+    .newsletter-form .input-group {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 0;
+    }
+
+    /* Footer mobile amélioré */
+    .footer-content {
+        padding: 0 20px;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-logo h2 {
+        font-size: 28px;
+    }
+
+    .brand-description {
+        font-size: 14px;
+    }
+
+    .footer-column {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .footer-bottom-content {
+        padding: 0 20px;
+    }
+
+    .payment-methods {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Ajustements pour très petits écrans */
+@media screen and (max-width: 375px) {
+    .logo h1 {
+        font-size: 28px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .collections-header h2,
+    .expertise-header h2,
+    .experience-header h2 {
+        font-size: 28px;
+    }
+
+    .newsletter-content h3 {
+        font-size: 26px;
+    }
+
+    .footer-logo h2 {
+        font-size: 24px;
+    }
+}
+
+/* Ajustements pour l'orientation paysage sur mobile */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: 500px;
+        height: auto;
+        padding: 100px 20px;
+    }
+
+    .hero-content {
+        transform: none;
+    }
+}
+
+/* Ajustements pour tablettes */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
