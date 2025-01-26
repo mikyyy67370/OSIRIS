@@ -2048,6 +2048,51 @@ section {
         font-size: 36px;
         letter-spacing: 6px;
     }
+
+    .collection-card {
+        margin-bottom: 30px;
+    }
+
+    /* Modification du comportement de l'overlay sur mobile */
+    .collection-overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+    }
+
+    /* État actif pour le tap sur mobile */
+    .collection-card:active .collection-overlay,
+    .collection-card:focus .collection-overlay {
+        opacity: 1;
+    }
+
+    .collection-card:active .collection-symbol,
+    .collection-card:focus .collection-symbol {
+        transform: translateY(0);
+    }
+
+    .collection-card:active .collection-content,
+    .collection-card:focus .collection-content {
+        transform: translateY(0);
+    }
+
+    /* Désactivation de l'effet hover sur mobile */
+    .collection-card:hover .collection-overlay {
+        opacity: 0;
+    }
+
+    /* Ajout d'un état touché */
+    .collection-card.touched .collection-overlay {
+        opacity: 1;
+    }
+
+    .collection-card.touched .collection-symbol {
+        transform: translateY(0);
+    }
+
+    .collection-card.touched .collection-content {
+        transform: translateY(0);
+    }
 }
 
 /* Footer Styles */
