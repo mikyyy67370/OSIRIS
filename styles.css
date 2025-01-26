@@ -409,47 +409,70 @@ a {
 
 /* Amélioration du responsive */
 @media screen and (max-width: 768px) {
+    .hero {
+        padding-left: 12%;
+        text-align: left;
+        justify-content: flex-start;
+        height: 100vh;
+    }
+
+    .hero-content {
+        margin-right: 60px;
+        padding: 0;
+        max-width: 500px;
+    }
+
+    .hero-badge {
+        padding: 12px 25px;
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
     .hero-content h1 {
-        font-size: 60px;
-        letter-spacing: 1px;
+        font-size: 72px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
     }
 
     .hero-content p {
-        font-size: 22px;
+        font-size: 24px;
         letter-spacing: 6px;
+        margin-bottom: 25px;
     }
 
     .hero-description {
         font-size: 15px;
-        letter-spacing: 1.5px;
-        line-height: 1.6;
+        letter-spacing: 2px;
+        line-height: 1.8;
+        margin: 30px 0 45px;
+        max-width: 400px;
     }
 
-    .main-menu {
-        gap: 30px;
-        padding: 20px 0;
-    }
-
-    .main-menu a {
-        font-size: 13px;
-    }
-
-    .hero-video {
-        object-position: 70% center;
-    }
-    
-    .hero-overlay {
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+    .cta-button {
+        padding: 20px 45px;
+        font-size: 12px;
+        letter-spacing: 4px;
     }
 }
 
+/* Ajustements pour les très petits écrans */
 @media screen and (max-width: 480px) {
-    .hero-video {
-        object-position: 75% center;
+    .hero {
+        padding-left: 8%;
     }
-    
-    .hero-overlay {
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+
+    .hero-content h1 {
+        font-size: 56px;
+    }
+
+    .hero-content p {
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        margin: 25px 0 40px;
     }
 }
 
@@ -549,12 +572,11 @@ a {
     }
 
     .main-menu {
-        overflow-x: auto;
-        padding: 15px 0;
-        gap: 25px;
-        justify-content: flex-start;
-        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        padding: 15px 10px;
+        margin: 0 -20px;
+        width: calc(100% + 40px);
     }
 
     .main-menu::-webkit-scrollbar {
@@ -971,20 +993,36 @@ a {
 /* Ajustement responsive */
 @media screen and (max-width: 768px) {
     .product-info {
-        padding: 0 20px;
-        gap: 12px;
+        padding: 0;
+        width: 100%;
     }
 
     .product-info h3 {
-        font-size: 26px;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .product-category {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .product-rating {
+        margin: 15px 0;
     }
 
     .product-description {
         font-size: 16px;
+        margin-bottom: 8px;
     }
 
     .product-subtitle {
         font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .product-footer {
+        margin-top: 20px;
     }
 }
 
@@ -1161,43 +1199,44 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+    .introduction {
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+
+    .intro-content {
+        padding: 40px 20px;
+    }
+
     .intro-video-container {
         height: 40vh;
     }
 
-    .intro-content {
-        padding: 50px 20px;
+    .expertise {
+        padding: 0;
+        margin-top: -1px;
+        background-color: var(--black);
     }
 
-    .intro-text h2 {
-        font-size: 32px;
-        letter-spacing: 4px;
+    .expertise-header {
+        padding-top: 60px;
     }
 
-    .intro-subtitle {
-        font-size: 16px;
-        letter-spacing: 3px;
+    .expertise-grid {
+        padding: 0 20px 60px 20px;
+    }
+
+    .intro-text {
+        margin-bottom: 0;
     }
 
     .intro-description {
-        font-size: 14px;
-        line-height: 1.8;
         margin-bottom: 30px;
     }
 
     .intro-btn {
-        padding: 15px 30px;
-        font-size: 11px;
-        letter-spacing: 3px;
-    }
-
-    .intro-symbol {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    .introduction {
-        margin-bottom: 40px;
+        margin-bottom: 0;
     }
 }
 
@@ -1228,6 +1267,14 @@ a {
     .intro-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .expertise {
+        min-height: calc(100vh + 40px);
+    }
+
+    .expertise-header {
+        padding-top: 60px;
     }
 }
 
@@ -1262,39 +1309,94 @@ section {
 @media screen and (max-width: 768px) {
     .bestsellers {
         padding: 80px 20px;
+        overflow: hidden;
     }
 
     .bestsellers-grid {
-        grid-template-columns: 1fr; /* Change en une seule colonne */
+        grid-template-columns: 1fr;
         gap: 60px;
-        max-width: 400px;
-        margin: 0 auto;
+        width: 100%;
     }
 
     .product-card {
-        margin-bottom: 40px; /* Ajoute de l'espace entre les cartes */
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .product-image {
+        width: 100%;
+        margin: 0 0 25px 0;
+        aspect-ratio: 3/4;
     }
 
     .product-image img {
-        height: 400px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .product-info {
+        width: 100%;
+        padding: 0;
+    }
+
+    .product-info h3 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .product-category {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .product-rating {
+        margin: 15px 0;
+    }
+
+    .product-details {
+        width: 100%;
+        padding: 0;
+    }
+
+    .product-description {
+        font-size: 16px;
+        margin-bottom: 8px;
+        padding: 0;
+    }
+
+    .product-subtitle {
+        font-size: 14px;
+        padding: 0;
+    }
+
+    .product-footer {
+        width: 100%;
+        margin-top: 20px;
+        padding: 0;
     }
 }
 
 @media screen and (max-width: 480px) {
     .bestsellers {
-        padding: 60px 15px;
+        padding: 60px 20px;
     }
 
-    .bestsellers-grid {
-        gap: 50px;
+    .product-image {
+        aspect-ratio: 2/3;
     }
 
-    .product-image img {
-        height: 350px;
+    .product-info h3 {
+        font-size: 24px;
     }
 
-    .product-card {
-        margin-bottom: 30px;
+    .product-description {
+        font-size: 15px;
+    }
+
+    .product-subtitle {
+        font-size: 13px;
     }
 }
 
@@ -1640,24 +1742,27 @@ section {
 
 @media screen and (max-width: 768px) {
     .expertise {
-        padding: 100px 0;
-        min-height: 100vh;
+        padding: 0;
+        min-height: calc(100vh + 60px);
+    }
+
+    .expertise-header {
+        padding-top: 80px;
+        margin-bottom: 40px;
     }
 
     .expertise-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 20px;
         padding: 0 20px;
     }
 
     .expertise-card {
-        height: auto;
-        min-height: 300px;
-        padding: 40px 30px;
+        padding: 30px 25px;
     }
 
     .expertise-header {
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
 
     .expertise-header h2 {
@@ -1666,8 +1771,11 @@ section {
     }
 
     .expertise-description {
-        font-size: 15px;
-        line-height: 1.8;
+        margin-bottom: 0;
+    }
+
+    .expertise-card:not(:last-child) {
+        margin-bottom: 20px;
     }
 }
 
@@ -2036,52 +2144,106 @@ section {
 
 @media screen and (max-width: 768px) {
     .collections {
-        padding: 100px 0;
+        padding: 80px 0;
     }
 
     .collections-grid {
         grid-template-columns: 1fr;
         padding: 0 20px;
+        gap: 40px;
     }
 
     .collections-header h2 {
         font-size: 36px;
-        letter-spacing: 6px;
+        padding: 0 20px;
     }
 
     .collection-card {
         margin-bottom: 30px;
     }
 
+    .collection-image {
+        height: 450px;
+    }
+
     .collection-overlay {
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    }
+
+    .collection-symbol {
+        font-size: 56px;
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
     }
 
     .collection-content {
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
+        padding: 25px;
+        transform: none;
+        position: relative;
+        background: var(--white);
+        border-top: 1px solid rgba(197, 165, 114, 0.1);
     }
 
-    /* Nouveau style pour l'état actif */
+    .collection-content h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .collection-content p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        padding: 0 10px;
+    }
+
+    .collection-link {
+        font-size: 13px;
+        letter-spacing: 4px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(197, 165, 114, 0.1);
+        margin-top: 15px;
+    }
+
     .collection-card.active .collection-overlay {
         opacity: 1;
     }
 
     .collection-card.active .collection-symbol {
+        opacity: 1;
         transform: translateY(0);
     }
 
-    .collection-card.active .collection-content {
-        transform: translateY(0);
-    }
-
-    /* Supprimer les effets hover sur mobile */
-    .collection-card:hover .collection-overlay,
-    .collection-card:hover .collection-content,
-    .collection-card:hover .collection-symbol {
+    .collection-card {
         transform: none;
-        opacity: 0;
+        transition: transform 0.4s ease;
+    }
+
+    .collection-card:active {
+        transform: scale(0.98);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .collection-image {
+        height: 400px;
+    }
+
+    .collection-content {
+        padding: 20px 15px;
+    }
+
+    .collection-content h3 {
+        font-size: 22px;
+    }
+
+    .collection-content p {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+
+    .collection-symbol {
+        font-size: 48px;
     }
 }
 
@@ -2229,7 +2391,7 @@ section {
 
 /* Ajustement de la taille des icônes */
 .social-link .fa-facebook-f {
-    font-size: 16px; /* Légèrement plus petit pour l'harmonie visuelle */
+    font-size: 16px;
 }
 
 .social-link .fa-twitter {
@@ -2398,7 +2560,7 @@ section {
     }
 
     .nav-left {
-        display: none; /* On cache la partie gauche sur mobile */
+        display: none;
     }
 
     .logo h1 {
@@ -2410,7 +2572,7 @@ section {
     }
 
     .search-bar {
-        display: none; /* On cache la barre de recherche sur mobile */
+        display: none;
     }
 
     /* Menu principal mobile */
@@ -2431,8 +2593,8 @@ section {
     .hero {
         padding-left: 20px;
         padding-right: 20px;
-        text-align: center;
-        justify-content: center;
+        text-align: left;
+        justify-content: left;
     }
 
     .hero-content {
@@ -2531,7 +2693,6 @@ section {
     }
 
     .collections-header h2,
-    .expertise-header h2,
     .experience-header h2 {
         font-size: 28px;
     }
@@ -2564,12 +2725,168 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .expertise-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .experience-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media Queries pour le titre */
+@media screen and (max-width: 1200px) {
+    .section-header h2 {
+        font-size: 46px;
+        letter-spacing: 6px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .section-header h2 {
+        font-size: 42px;
+        letter-spacing: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-header h2 {
+        font-size: 36px;
+        letter-spacing: 4px;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section-header h2 {
+        font-size: 28px;
+        letter-spacing: 3px;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .section-header h2 {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Ajustements généraux pour mobile */
+@media screen and (max-width: 768px) {
+    /* Correction du menu mobile */
+    .main-menu {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 15px 10px;
+        margin: 0 -20px;
+        width: calc(100% + 40px);
+    }
+
+    /* Correction du hero */
+    .hero {
+        height: 100vh;
+        padding: 120px 20px 60px 20px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Correction des sections */
+    .bestsellers {
+        padding: 80px 20px;
+        overflow: hidden;
+    }
+
+    .expertise {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .expertise-grid {
+        padding: 0 20px 60px 20px;
+    }
+
+    .expertise-card {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    /* Correction des collections */
+    .collections {
+        padding: 80px 0;
+        overflow: hidden;
+    }
+
+    .collection-card {
+        opacity: 1;
+        transform: none !important;
+    }
+
+    /* Correction de l'expérience */
+    .experience {
+        padding: 80px 0;
+        overflow: hidden;
+    }
+
+    .experience-card {
+        opacity: 1;
+        transform: none !important;
+    }
+
+    /* Correction du footer */
+    .footer-content {
+        gap: 40px;
+    }
+
+    .newsletter-form .input-group {
+        gap: 15px;
+    }
+
+    .newsletter-form button {
+        height: 50px;
+    }
+}
+
+/* Correction des animations sur mobile */
+@media screen and (max-width: 768px) {
+    .fadeInSlideUp {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    [class*="animate-"] {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    /* Amélioration des performances de défilement */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Correction des transitions sur mobile */
+@media screen and (max-width: 768px) {
+    .collection-card,
+    .expertise-card,
+    .experience-card {
+        transition: transform 0.3s ease;
+    }
+
+    .collection-overlay,
+    .product-overlay {
+        transition: opacity 0.3s ease;
     }
 }
 
