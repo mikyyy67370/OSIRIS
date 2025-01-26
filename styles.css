@@ -24,22 +24,9 @@ body {
     color: var(--white);
     text-align: center;
     padding: 12px;
-    position: relative;
     font-size: 14px;
     letter-spacing: 1.5px;
     font-weight: 300;
-}
-
-.close-button {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--white);
-    cursor: pointer;
-    font-size: 20px;
 }
 
 header {
@@ -928,9 +915,39 @@ a {
 }
 
 .stars {
+    position: relative;
+    display: flex;
+    gap: 4px;
+}
+
+.stars i {
+    font-size: 13px;
+    color: rgba(197, 165, 114, 0.2);
+}
+
+/* Style pour les étoiles remplies */
+.fa-star.filled {
     color: var(--gold);
-    font-size: 16px;
-    letter-spacing: 4px;
+}
+
+/* Style pour les étoiles vides (fond) */
+.fa-star {
+    position: relative;
+}
+
+/* Style pour les demi-étoiles */
+.half-filled {
+    position: relative;
+}
+
+.half-filled::after {
+    content: "\f005";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--gold);
 }
 
 .rating-count {
@@ -2887,6 +2904,54 @@ section {
     .collection-overlay,
     .product-overlay {
         transition: opacity 0.3s ease;
+    }
+}
+
+/* Style des étoiles */
+.stars {
+    position: relative;
+    display: flex;
+    gap: 4px;
+}
+
+.stars i {
+    font-size: 13px;
+    color: rgba(197, 165, 114, 0.2);
+}
+
+/* Style pour les étoiles remplies */
+.fa-star.filled {
+    color: var(--gold);
+}
+
+/* Style pour les étoiles vides (fond) */
+.fa-star {
+    position: relative;
+}
+
+/* Style pour les demi-étoiles */
+.half-filled {
+    position: relative;
+}
+
+.half-filled::after {
+    content: "\f005";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--gold);
+}
+
+/* Version mobile */
+@media screen and (max-width: 768px) {
+    .stars {
+        gap: 3px;
+    }
+
+    .stars i {
+        font-size: 12px;
     }
 }
 
