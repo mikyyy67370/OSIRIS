@@ -8,6 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Marcellus&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
+    <style>
+        body {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        
+        body.fade-out {
+            opacity: 0;
+        }
+        
+        .discover-link {
+            transition: all 0.3s ease;
+        }
+        
+        .discover-link:hover {
+            transform: translateX(10px);
+        }
+    </style>
 </head>
 <body>
     <div class="announcement-bar">
@@ -212,10 +230,10 @@
                     <p class="intro-description">
                         Chez OSIRIS, nous croyons que chaque parfum est une porte ouverte sur l'histoire, un voyage sensoriel qui plonge dans les mystères d'un passé lointain. Nos créations sont inspirées par les rituels olfactifs de l'Égypte antique, où les parfums n'etaient pas seulement accessoires de beauté, mais des symboles de divinité.
                     </p>
-                    <button class="intro-btn">
+                    <a href="notrehistoire.html" class="intro-btn" data-transition="fade">
                         <span>DÉCOUVRIR NOTRE HISTOIRE</span>
                         <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -281,7 +299,7 @@
                         <h3>HATHOR</h3>
                         <p>L'incarnation de l'amour et de la beauté divine en fragrance</p>
                         <div class="collection-link">
-                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                            <a href="hathor.html" class="discover-link" data-transition="fade">
                                 <span>DÉCOUVRIR</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -300,7 +318,7 @@
                         <h3>THOT</h3>
                         <p>La sagesse divine sublimée en notes précieuses et mystiques</p>
                         <div class="collection-link">
-                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                            <a href="thot.html" class="discover-link" data-transition="fade">
                                 <span>DÉCOUVRIR</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -319,7 +337,7 @@
                         <h3>ISIS</h3>
                         <p>Le pouvoir de la féminité divine capturé en fragrance</p>
                         <div class="collection-link">
-                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                            <a href="isis.html" class="discover-link" data-transition="fade">
                                 <span>DÉCOUVRIR</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -336,9 +354,9 @@
                     </div>
                     <div class="collection-content">
                         <h3>ANUBIS</h3>
-                        <p>L'intensité mystérieuse des rituels sacrés d'embaumement</p>
+                        <p>Le Gardien des Âmes</p>
                         <div class="collection-link">
-                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                            <a href="anubis.html" class="discover-link" data-transition="fade">
                                 <span>DÉCOUVRIR</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -355,9 +373,9 @@
                     </div>
                     <div class="collection-content">
                         <h3>SEKHMET</h3>
-                        <p>La force et la protection sublimées en notes ardentes</p>
+                        <p>La puissance divine incarnée</p>
                         <div class="collection-link">
-                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                            <a href="sekhmet.html" class="discover-link" data-transition="fade">
                                 <span>DÉCOUVRIR</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -644,6 +662,23 @@
         document.querySelector('.hamburger-menu').addEventListener('click', function() {
             this.classList.toggle('active');
             document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('[data-transition="fade"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    
+                    document.body.classList.add('fade-out');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500); // Délai correspondant à la durée de l'animation
+                });
+            });
         });
     </script>
 </body>
