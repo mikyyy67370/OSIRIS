@@ -15,6 +15,10 @@
     </div>
 
     <header>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        
         <nav>
             <div class="nav-left">
                 <div class="location-selector">
@@ -52,20 +56,21 @@
             </div>
         </nav>
 
+        <!-- Menu principal (desktop) -->
         <div class="main-menu">
-            <a href="#hommes" class="menu-item">
+            <a href="lesmasculins.html" class="menu-item">
                 <span class="menu-text">LES MASCULINS</span>
             </a>
-            <a href="#femmes" class="menu-item">
+            <a href="lesfeminins.html" class="menu-item">
                 <span class="menu-text">LES FÉMININS</span>
             </a>
             <a href="#limited" class="menu-item">
                 <span class="menu-text">COLLECTIONS PRIVÉES</span>
             </a>
             <a href="#collections" class="menu-item">
-                <span class="menu-text">L'ART DU PARFUM</span>
+                <span class="menu-text">COLLECTIONS SIGNATURES</span>
             </a>
-            <a href="#guide" class="menu-item">
+            <a href="choisirsonparfum.html" class="menu-item">
                 <span class="menu-text">COMMENT CHOISIR SON PARFUM</span>
             </a>
         </div>
@@ -75,7 +80,7 @@
         <section id="hero" class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="hero-badge">COLLECTION PRIVÉE</div>
+                <div class="hero-badge">HÉRITAGE DES PHARAONS</div>
                 <h1>UNE GOUTTE D'HISTOIRE</h1>
                 <p>UNE ÉTERNITÉ Á PORTER SUR SOIT</p>
                 <div class="hero-description">
@@ -99,7 +104,7 @@
                     <div class="product-image">
                         <img src="../images/parfum1.jpg" alt="Parfum Osiris">
                         <div class="product-overlay">
-                            <button class="discover-btn">DÉCOUVRIR</button>
+                            <a href="osirisroyal.html" class="discover-btn" data-transition="fade">DÉCOUVRIR</a>
                         </div>
                     </div>
                     <div class="product-info">
@@ -276,8 +281,10 @@
                         <h3>HATHOR</h3>
                         <p>L'incarnation de l'amour et de la beauté divine en fragrance</p>
                         <div class="collection-link">
-                            <span>DÉCOUVRIR</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                                <span>DÉCOUVRIR</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -293,8 +300,10 @@
                         <h3>THOT</h3>
                         <p>La sagesse divine sublimée en notes précieuses et mystiques</p>
                         <div class="collection-link">
-                            <span>DÉCOUVRIR</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                                <span>DÉCOUVRIR</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -310,8 +319,10 @@
                         <h3>ISIS</h3>
                         <p>Le pouvoir de la féminité divine capturé en fragrance</p>
                         <div class="collection-link">
-                            <span>DÉCOUVRIR</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                                <span>DÉCOUVRIR</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -327,8 +338,10 @@
                         <h3>ANUBIS</h3>
                         <p>L'intensité mystérieuse des rituels sacrés d'embaumement</p>
                         <div class="collection-link">
-                            <span>DÉCOUVRIR</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                                <span>DÉCOUVRIR</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -344,8 +357,10 @@
                         <h3>SEKHMET</h3>
                         <p>La force et la protection sublimées en notes ardentes</p>
                         <div class="collection-link">
-                            <span>DÉCOUVRIR</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                                <span>DÉCOUVRIR</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -361,8 +376,10 @@
                         <h3>BASTET</h3>
                         <p>L'élégance féline sublimée par des notes envoûtantes</p>
                         <div class="collection-link">
-                            <span>DÉCOUVRIR</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <a href="osirisroyal.html" class="discover-link" data-transition="fade">
+                                <span>DÉCOUVRIR</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -420,98 +437,89 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="newsletter-section">
-                <div class="newsletter-content">
-                    <div class="newsletter-symbol">𓂀</div>
-                    <h3>RESTEZ INFORMÉ</h3>
-                    <p>Recevez en avant-première nos actualités et offres exclusives</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" placeholder="Votre adresse email" required>
-                            <button type="submit">
-                                <span>S'INSCRIRE</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </form>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>OSIRIS</h3>
+                <p>Une maison de parfumerie de luxe qui célèbre l'héritage des fragrances ancestrales.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-main">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <div class="logo-symbol">◈</div>
-                        <h2>OSIRIS</h2>
-                    </div>
-                    <p class="brand-description">
-                        L'excellence de la haute parfumerie inspirée par l'héritage millénaire de l'Égypte ancienne.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+            <div class="footer-section">
+                <h4>COLLECTIONS</h4>
+                <ul>
+                    <li><a href="#">Les Masculins</a></li>
+                    <li><a href="#">Les Féminins</a></li>
+                    <li><a href="#">Collections Privées</a></li>
+                    <li><a href="#">Éditions Limitées</a></li>
+                </ul>
+            </div>
 
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>COLLECTIONS</h4>
-                        <ul>
-                            <li><a href="#">Les Masculins</a></li>
-                            <li><a href="#">Les Féminins</a></li>
-                            <li><a href="#">Collections Privées</a></li>
-                            <li><a href="#">Nouveautés</a></li>
-                        </ul>
-                    </div>
+            <div class="footer-section">
+                <h4>MAISON</h4>
+                <ul>
+                    <li><a href="#">Notre Histoire</a></li>
+                    <li><a href="#">Savoir-Faire</a></li>
+                    <li><a href="#">Nos Boutiques</a></li>
+                    <li><a href="#">Carrières</a></li>
+                </ul>
+            </div>
 
-                    <div class="footer-column">
-                        <h4>SERVICES</h4>
-                        <ul>
-                            <li><a href="#">Conseil Personnalisé</a></li>
-                            <li><a href="#">Livraison</a></li>
-                            <li><a href="#">Comment choisir son parfum</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
+            <div class="footer-section">
+                <h4>SERVICE CLIENT</h4>
+                <ul>
+                    <li><a href="#">Contactez-nous</a></li>
+                    <li><a href="#">Livraison & Retours</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Mentions Légales</a></li>
+                </ul>
+            </div>
 
-                    <div class="footer-column">
-                        <h4>OSIRIS</h4>
-                        <ul>
-                            <li><a href="#">Notre Histoire</a></li>
-                            <li><a href="#">Savoir-Faire</a></li>
-                            <li><a href="#">Nos Engagements</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="footer-section">
+                <h4>NEWSLETTER</h4>
+                <p>Inscrivez-vous pour recevoir nos actualités et offres exclusives</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email">
+                    <button type="submit">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <div class="legal-links">
-                    <a href="#">Mentions Légales</a>
-                    <span class="separator">|</span>
-                    <a href="#">Politique de Confidentialité</a>
-                    <span class="separator">|</span>
-                    <a href="#">CGV</a>
-                </div>
-                <div class="copyright">
-                    <p>© 2024 OSIRIS - Tous droits réservés</p>
-                </div>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                </div>
+            <p>&copy; 2024 OSIRIS. Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
             </div>
         </div>
     </footer>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu">
+        <a href="lesmasculins.html" class="menu-item">
+            <span class="menu-text">LES MASCULINS</span>
+        </a>
+        <a href="lesfeminins.html" class="menu-item">
+            <span class="menu-text">LES FÉMININS</span>
+        </a>
+        <a href="#limited" class="menu-item">
+            <span class="menu-text">COLLECTIONS PRIVÉES</span>
+        </a>
+        <a href="#collections" class="menu-item">
+            <span class="menu-text">COLLECTIONS SIGNATURES</span>
+        </a>
+        <a href="choisirsonparfum.html" class="menu-item">
+            <span class="menu-text">COMMENT CHOISIR SON PARFUM</span>
+        </a>
+    </div>
 
     <script>
         // Sélectionner toutes les sections et les points de navigation
@@ -610,6 +618,46 @@
                     activeCard.classList.remove('active');
                     activeCard = null;
                 }
+            });
+        });
+
+        // Ajout du script pour gérer l'indicateur de défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainMenu = document.querySelector('.main-menu');
+            const dots = document.querySelectorAll('.scroll-dot');
+            
+            mainMenu.addEventListener('scroll', function() {
+                const scrollPosition = mainMenu.scrollLeft;
+                const maxScroll = mainMenu.scrollWidth - mainMenu.clientWidth;
+                const scrollPercentage = scrollPosition / maxScroll;
+                
+                // Mise à jour des points indicateurs
+                dots.forEach((dot, index) => {
+                    const dotPosition = index / (dots.length - 1);
+                    dot.classList.toggle('active', 
+                        Math.abs(dotPosition - scrollPercentage) < 0.2);
+                });
+            });
+        });
+
+        // Gestion du menu hamburger
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            hamburger.addEventListener('click', function() {
+                console.log('Hamburger clicked'); // Pour déboguer
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Fermer le menu quand on clique sur un lien
+            const mobileLinks = document.querySelectorAll('.mobile-menu .menu-item');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
             });
         });
     </script>
