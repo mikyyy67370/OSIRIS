@@ -641,24 +641,9 @@
         });
 
         // Gestion du menu hamburger
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger-menu');
-            const mobileMenu = document.querySelector('.mobile-menu');
-
-            hamburger.addEventListener('click', function() {
-                console.log('Hamburger clicked'); // Pour déboguer
-                hamburger.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-
-            // Fermer le menu quand on clique sur un lien
-            const mobileLinks = document.querySelectorAll('.mobile-menu .menu-item');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                });
-            });
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
         });
     </script>
 </body>

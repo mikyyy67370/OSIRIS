@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comment Choisir Son Parfum | OSIRIS</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="choisirsonparfum.css"
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Marcellus&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
@@ -14,17 +15,7 @@
         DÉCOUVREZ LA COLLECTION EXCLUSIVE "HÉRITAGE DES PHARAONS"
     </div>
 
-    <div class="back-home">
-        <a href="index.html" class="back-link">
-            <i class="fas fa-chevron-left"></i>
-            <div class="mini-logo">
-                <div class="logo-symbol">◈</div>
-                <span>OSIRIS</span>
-            </div>
-        </a>
-    </div>
-
-    <header>
+    <header class="header">
         <nav>
             <div class="nav-left">
                 <div class="location-selector">
@@ -62,6 +53,13 @@
             </div>
         </nav>
 
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
         <div class="main-menu">
             <a href="lesmasculins.html" class="menu-item">
                 <span class="menu-text">LES MASCULINS</span>
@@ -75,9 +73,57 @@
             <a href="#collections" class="menu-item">
                 <span class="menu-text">COLLECTIONS SIGNATURES</span>
             </a>
-            <a href="choisirsonparfum.html" class="menu-item">
+            <a href="choisirsonparfum.html" class="menu-item active">
                 <span class="menu-text">COMMENT CHOISIR SON PARFUM</span>
             </a>
+        </div>
+
+        <!-- Menu mobile -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo-symbol">◈</div>
+                <span>OSIRIS</span>
+            </div>
+
+            <div class="mobile-menu-section">
+                <h3>COLLECTIONS</h3>
+                <a href="lesmasculins.html" class="menu-item">
+                    <span class="menu-text">LES MASCULINS</span>
+                </a>
+                <a href="lesfeminins.html" class="menu-item">
+                    <span class="menu-text">LES FÉMININS</span>
+                </a>
+                <a href="#limited" class="menu-item">
+                    <span class="menu-text">COLLECTIONS PRIVÉES</span>
+                </a>
+                <a href="#collections" class="menu-item">
+                    <span class="menu-text">COLLECTIONS SIGNATURES</span>
+                </a>
+                <a href="choisirsonparfum.html" class="menu-item active">
+                    <span class="menu-text">COMMENT CHOISIR SON PARFUM</span>
+                </a>
+            </div>
+
+            <div class="mobile-menu-section">
+                <h3>INFORMATIONS</h3>
+                <a href="#about" class="menu-item">
+                    <span class="menu-text">À PROPOS</span>
+                </a>
+                <a href="#stores" class="menu-item">
+                    <span class="menu-text">NOS BOUTIQUES</span>
+                </a>
+                <a href="#contact" class="menu-item">
+                    <span class="menu-text">NOUS CONTACTER</span>
+                </a>
+            </div>
+
+            <div class="mobile-menu-footer">
+                <div class="location-selector">
+                    <span class="country">FRANCE</span>
+                    <span class="divider">|</span>
+                    <span class="language">FR</span>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -193,5 +239,12 @@
     <footer class="footer">
         <!-- ... Copier le même footer ... -->
     </footer>
+
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html> 

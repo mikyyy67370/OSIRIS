@@ -2718,11 +2718,18 @@ footer {
     }
 
     .logo h1 {
-        font-size: 32px;
+        font-size: 28px;
+        letter-spacing: 4px;
     }
 
     .logo-tagline {
-        font-size: 10px;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .logo-location {
+        font-size: 8px;
+        letter-spacing: 2px;
     }
 
     /* Icons à droite */
@@ -2777,8 +2784,8 @@ footer {
     .mobile-menu .menu-item {
         display: block;
         padding: 20px 0;
-        font-size: 18px;
-        letter-spacing: 3px;
+        font-size: 16px;
+        letter-spacing: 2px;
         border-bottom: 1px solid rgba(197, 165, 114, 0.2);
         transition: var(--transition);
     }
@@ -2786,5 +2793,137 @@ footer {
     .mobile-menu .menu-item:hover {
         color: var(--gold);
         padding-left: 10px;
+    }
+}
+
+/* Ajustements mobiles */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .logo h1 {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .logo-tagline {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .logo-location {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    /* Menu mobile */
+    .mobile-menu .menu-item {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    /* Hero section */
+    .hero-badge {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 8px 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        letter-spacing: 4px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 280px;
+    }
+
+    /* Bestsellers section */
+    .section-header h2 {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    .section-header .subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .product-card h3 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .product-category {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .product-description {
+        font-size: 13px;
+    }
+
+    .product-subtitle {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+
+    .product-volume {
+        font-size: 11px;
+    }
+
+    /* Introduction section */
+    .intro-text h2 {
+        font-size: 26px;
+        letter-spacing: 3px;
+    }
+
+    .intro-subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .intro-description {
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 0 15px;
+    }
+}
+
+/* Très petits écrans */
+@media screen and (max-width: 380px) {
+    .logo h1 {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+
+    .section-header h2 {
+        font-size: 22px;
+    }
+
+    .product-card h3 {
+        font-size: 16px;
+    }
+
+    .intro-text h2 {
+        font-size: 24px;
+    }
+
+    .intro-description {
+        font-size: 12px;
+        padding: 0 10px;
     }
 }
