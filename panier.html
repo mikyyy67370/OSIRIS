@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - OSIRIS Parfums</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="panier.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Marcellus&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+        }
+
+        .cart-items {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .item-details h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 0;
+        }
+
+        .item-details p {
+            margin: 0.25rem 0;
+            color: #666;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .quantity-btn {
+            background: #f5f5f5;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .quantity {
+            font-size: 1rem;
+            font-weight: 500;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .total-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: auto;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .remove-item:hover {
+            color: #ff4444;
+        }
+
+        .cart-summary {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-summary h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1.5rem 0;
+            color: #333;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        .summary-item.total {
+            border-top: 2px solid #eee;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .checkout-btn:hover {
+            background: #222;
+        }
+
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .continue-shopping {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .continue-shopping:hover {
+            color: #333;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-summary {
+                position: static;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cart-item {
+                grid-template-columns: 100px 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .item-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .item-details h3 {
+                font-size: 1rem;
+            }
+
+            .item-details p {
+                font-size: 0.9rem;
+            }
+
+            .quantity-controls {
+                gap: 0.5rem;
+            }
+
+            .quantity-btn {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="announcement-bar">
+        <p>Livraison gratuite en France métropolitaine</p>
+    </div>
+
+    <header>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <nav>
+            <div class="nav-left">
+                <div class="location-selector">
+                    <span class="country">FRANCE</span>
+                    <span class="divider">|</span>
+                    <span class="language">FR</span>
+                </div>
+                <a href="contact.html" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    NOUS CONTACTER
+                </a>
+            </div>
+            
+            <div class="logo">
+                <div class="logo-symbol">◈</div>
+                <h1>OSIRIS</h1>
+                <div class="logo-tagline">UNE GOUTTE D'HISTOIRE</div>
+                <div class="logo-location">STRASBOURG</div>
+            </div>
+
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher...">
+                    <button class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <a href="#account" class="icon">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="panier.html" class="icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Menu principal (desktop) -->
+        <div class="main-menu">
+            <a href="lesmasculins.html" class="menu-item">
+                <span class="menu-text">LES MASCULINS</span>
+            </a>
+            <a href="lesfeminins.html" class="menu-item">
+                <span class="menu-text">LES FÉMININS</span>
+            </a>
+            <a href="notrehistoire.html" class="menu-item">
+                <span class="menu-text">NOTRE HISTOIRE</span>
+            </a>
+            <a href="contact.html" class="menu-item">
+                <span class="menu-text">CONTACTEZ-NOUS</span>
+            </a>
+            <a href="choisirsonparfum.html" class="menu-item">
+                <span class="menu-text">COMMENT CHOISIR SON PARFUM</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h1>Votre Panier</h1>
+        </div>
+
+        <div class="cart-container">
+            <div class="cart-items" id="cartItems">
+                <!-- Les articles seront ajoutés dynamiquement -->
+            </div>
+
+            <div class="cart-summary">
+                <h2>Récapitulatif</h2>
+                <div class="summary-item subtotal">
+                    <span>Sous-total</span>
+                    <span class="amount">0.00€</span>
+                </div>
+                <div class="summary-item shipping">
+                    <span>Frais de livraison</span>
+                    <span class="amount">Gratuit</span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total</span>
+                    <span class="amount">0.00€</span>
+                </div>
+                <button class="checkout-btn">
+                    Procéder au paiement
+                </button>
+                <a href="index.html" class="continue-shopping">
+                    <i class="fas fa-arrow-left"></i>
+                    Continuer mes achats
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>OSIRIS</h3>
+                <p>Une maison de parfumerie de luxe qui célèbre l'héritage des fragrances ancestrales.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>COLLECTIONS</h4>
+                <ul>
+                    <li><a href="#">Les Masculins</a></li>
+                    <li><a href="#">Les Féminins</a></li>
+                    <li><a href="#">Collections Privées</a></li>
+                    <li><a href="#">Éditions Limitées</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>MAISON</h4>
+                <ul>
+                    <li><a href="#">Notre Histoire</a></li>
+                    <li><a href="#">Savoir-Faire</a></li>
+                    <li><a href="#">Nos Boutiques</a></li>
+                    <li><a href="#">Carrières</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>SERVICE CLIENT</h4>
+                <ul>
+                    <li><a href="#">Contactez-nous</a></li>
+                    <li><a href="#">Livraison & Retours</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Mentions Légales</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>NEWSLETTER</h4>
+                <p>Inscrivez-vous pour recevoir nos actualités et offres exclusives</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email">
+                    <button type="submit">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 OSIRIS. Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu">
+        <a href="lesmasculins.html" class="menu-item">
+            <span class="menu-text">LES MASCULINS</span>
+        </a>
+        <a href="lesfeminins.html" class="menu-item">
+            <span class="menu-text">LES FÉMININS</span>
+        </a>
+        <a href="#limited" class="menu-item">
+            <span class="menu-text">COLLECTIONS PRIVÉES</span>
+        </a>
+        <a href="#collections" class="menu-item">
+            <span class="menu-text">COLLECTIONS SIGNATURES</span>
+        </a>
+        <a href="choisirsonparfum.html" class="menu-item">
+            <span class="menu-text">COMMENT CHOISIR SON PARFUM</span>
+        </a>
+        <a href="contact.html" class="menu-item">
+            <span class="menu-text">NOUS CONTACTER</span>
+        </a>
+    </div>
+
+    <script>
+        class ShoppingCart {
+            constructor() {
+                this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+                this.init();
+            }
+
+            init() {
+                this.displayCartItems();
+                this.updateCartSummary();
+                this.setupEventListeners();
+            }
+
+            getCorrectImage(productName) {
+                const imageMap = {
+                    'ANUBIS': 'images/collection4.jpg',
+                    'BASTET': 'images/collection6.jpg',
+                    'HATHOR': 'images/collection1.jpg',
+                    'ISIS': 'images/collection3.jpg',
+                    'SEKHMET': 'images/collection5.jpg',
+                    'THOT': 'images/collection2.jpg',
+                    'OSIRIS ROYAL': 'images/parfum1.jpg',
+                    'NÉFERTITI': 'images/parfum2.jpg'
+                };
+                return imageMap[productName] || productName.image;
+            }
+
+            getProductPrice(productName, volume) {
+                const volumePrices = {
+                    '50ml': 289.00,
+                    '100ml': 389.00,
+                    '150ml': 489.00
+                };
+                return volumePrices[volume] || 289.00;
+            }
+
+            calculateItemTotal(item) {
+                const price = this.getProductPrice(item.name, item.volume);
+                return price * item.quantity;
+            }
+
+            displayCartItems() {
+                const cartItemsContainer = document.querySelector('.cart-items');
+                if (!cartItemsContainer) return;
+
+                cartItemsContainer.innerHTML = '';
+
+                if (this.cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p class="empty-cart">Votre panier est vide</p>';
+                    this.updateCartSummary();
+                    return;
+                }
+
+                this.cart.forEach((item, index) => {
+                    const correctImage = this.getCorrectImage(item.name);
+                    const price = this.getProductPrice(item.name, item.volume);
+                    const totalPrice = this.calculateItemTotal(item);
+                    
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="item-image">
+                            <img src="${correctImage}" alt="${item.name}">
+                        </div>
+                        <div class="item-details">
+                            <h3>${item.name}</h3>
+                            <p>Volume: ${item.volume}</p>
+                            <p>Prix unitaire: ${price.toFixed(2)}€</p>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus" data-index="${index}">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-index="${index}">+</button>
+                            </div>
+                            <p class="total-price">Total: ${totalPrice.toFixed(2)}€</p>
+                            <button class="remove-item" data-index="${index}">Supprimer</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+
+                this.updateCartSummary();
+            }
+
+            updateCartSummary() {
+                const subtotalElement = document.querySelector('.cart-summary .subtotal .amount');
+                const totalElement = document.querySelector('.cart-summary .total .amount');
+                const cartCountElements = document.querySelectorAll('.cart-count');
+
+                if (!subtotalElement || !totalElement) return;
+
+                const subtotal = this.cart.reduce((sum, item) => {
+                    return sum + this.calculateItemTotal(item);
+                }, 0);
+
+                const total = subtotal; // Pour l'instant, pas de frais supplémentaires
+                const itemCount = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+                // Mise à jour des éléments du DOM
+                subtotalElement.textContent = `${subtotal.toFixed(2)}€`;
+                totalElement.textContent = `${total.toFixed(2)}€`;
+                
+                // Mise à jour du compteur d'articles
+                cartCountElements.forEach(element => {
+                    element.textContent = itemCount;
+                });
+
+                // Mise à jour du localStorage
+                localStorage.setItem('cart', JSON.stringify(this.cart));
+
+                // Activer/désactiver le bouton de paiement
+                const checkoutBtn = document.querySelector('.checkout-btn');
+                if (checkoutBtn) {
+                    checkoutBtn.disabled = this.cart.length === 0;
+                }
+            }
+
+            setupEventListeners() {
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('quantity-btn')) {
+                        const index = parseInt(e.target.dataset.index);
+                        if (e.target.classList.contains('plus')) {
+                            if (this.cart[index].quantity < 10) {
+                                this.cart[index].quantity++;
+                                this.displayCartItems();
+                            }
+                        } else if (e.target.classList.contains('minus')) {
+                            if (this.cart[index].quantity > 1) {
+                                this.cart[index].quantity--;
+                                this.displayCartItems();
+                            }
+                        }
+                    }
+
+                    if (e.target.classList.contains('remove-item')) {
+                        const index = parseInt(e.target.dataset.index);
+                        this.cart.splice(index, 1);
+                        this.displayCartItems();
+                    }
+                });
+
+                // Écouter les changements du localStorage
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'cart') {
+                        this.cart = JSON.parse(e.newValue || '[]');
+                        this.displayCartItems();
+                    }
+                });
+            }
+        }
+
+        // Initialiser le panier
+        document.addEventListener('DOMContentLoaded', () => {
+            new ShoppingCart();
+        });
+    </script>
+</body>
+</html>

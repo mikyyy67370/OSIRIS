@@ -425,10 +425,25 @@
 .step-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
     border: 1px solid rgba(197, 165, 114, 0.1);
-    padding: 40px 30px;
+    padding: 70px 30px 35px;
     text-align: center;
     position: relative;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.step-number {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Marcellus', serif;
+    font-size: 42px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--gold), var(--light-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .step-card:hover {
@@ -436,50 +451,35 @@
     border-color: rgba(197, 165, 114, 0.3);
 }
 
-.step-number {
-    font-family: 'Marcellus', serif;
-    font-size: 48px;
-    color: var(--gold);
-    opacity: 0.5;
-    margin-bottom: 25px;
-    transition: all 0.3s ease;
-}
-
 .step-card:hover .step-number {
     opacity: 1;
-    transform: scale(1.1);
+    transform: translateX(-50%) scale(1.1);
 }
 
 .step-card h3 {
     font-family: 'Marcellus', serif;
-    font-size: 20px;
-    color: var(--white);
+    font-size: 18px;
     letter-spacing: 2px;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.step-card h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    transition: width 0.3s ease;
-}
-
-.step-card:hover h3::after {
-    width: 60px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--gold), var(--light-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .step-card p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(135deg, var(--gold), var(--light-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+.step-card:hover p {
+    opacity: 1;
 }
 
 /* Animation */
@@ -506,11 +506,12 @@
     }
 
     .step-card {
-        padding: 30px 20px;
+        padding: 60px 20px 30px;
     }
 
     .step-number {
-        font-size: 42px;
+        font-size: 36px;
+        top: 20px;
     }
 }
 
@@ -521,12 +522,13 @@
         margin: 0 auto;
     }
 
-    .step-card h3 {
-        font-size: 18px;
+    .step-card {
+        padding: 55px 20px 25px;
     }
 
     .step-number {
-        font-size: 36px;
+        font-size: 32px;
+        top: 18px;
     }
 }
 

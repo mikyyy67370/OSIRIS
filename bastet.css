@@ -2463,3 +2463,30 @@ footer {
     transition: all 0.3s ease-in-out;
 }
 
+/* Notification d'ajout au panier */
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+

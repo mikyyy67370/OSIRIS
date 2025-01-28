@@ -6,6 +6,7 @@
     <title>BASTET - Parfum de Luxe | OSIRIS</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="bastet.css">
+    <link rel="stylesheet" href="reviews.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Marcellus&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
@@ -52,7 +53,7 @@
                 <a href="#account" class="icon">
                     <i class="fas fa-user"></i>
                 </a>
-                <a href="#cart" class="icon cart-icon">
+                <a href="panier.html" class="icon cart-icon">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
                 </a>
@@ -103,7 +104,7 @@
             <div class="product-container">
                 <div class="product-gallery">
                     <div class="gallery-main">
-                        <img src="images/collection6.jpg" alt="ANUBIS - Flacon de parfum" class="main-image">
+                        <img src="images/collection6.jpg" alt="BASTET - Flacon de parfum" class="main-image">
                         <div class="gallery-badge">Édition Limitée</div>
                     </div>
                     <div class="gallery-thumbnails">
@@ -191,13 +192,14 @@
                             <button class="qty-btn minus">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <input type="number" value="1" min="1" max="10">
+                            <input type="number" value="1" min="1" max="10" id="quantity">
                             <button class="qty-btn plus">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </div>
-                        <button class="add-to-cart">
-                            <span>Ajouter au panier</span>
+                        <button class="add-to-cart" data-product-name="BASTET" data-product-price="289.00" data-product-image="images/collection6.jpg">
+                            <span>AJOUTER AU PANIER</span>
+                            <i class="fas fa-shopping-bag"></i>
                         </button>
                         <button class="wishlist-btn">
                             <i class="far fa-heart"></i>
@@ -387,6 +389,10 @@
                 </div>
             </div>
         </section>
+
+        <section class="reviews-container">
+            <!-- Les avis seront ajoutés dynamiquement par le JavaScript -->
+        </section>
     </main>
 
     <footer>
@@ -492,5 +498,58 @@
         });
     });
     </script>
+    <script>
+        function addToCart(productName, price, image) {
+            // Récupérer le panier actuel ou créer un nouveau tableau vide
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Vérifier si le produit est déjà dans le panier
+            const existingProduct = cart.find(item => item.name === productName);
+            
+            if (existingProduct) {
+                // Si le produit existe déjà, augmenter la quantité
+                existingProduct.quantity = Math.min(10, existingProduct.quantity + 1);
+            } else {
+                // Sinon, ajouter le nouveau produit
+                cart.push({
+                    name: productName,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            // Sauvegarder le panier mis à jour
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Mettre à jour le compteur du panier
+            updateCartCount();
+            
+            // Rediriger vers la page panier
+            window.location.href = 'panier.html';
+        }
+
+        // Mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCounts = document.querySelectorAll('.cart-count');
+            cartCounts.forEach(count => {
+                count.textContent = totalItems;
+            });
+        }
+
+        // Mettre à jour le compteur au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
+    <script src="product-page.js"></script>
+    <script src="reviews.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new ReviewSystem('bastet');
+        });
+    </script>
 </body>
-</html> 
+</html>

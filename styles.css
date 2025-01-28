@@ -2965,3 +2965,13 @@ footer {
     background: var(--white);
     color: var(--black);
 }
+
+.cta-link {
+    text-decoration: none;
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+.cta-button:hover .cta-link {
+    color: var(--white);
+}
